@@ -1,7 +1,13 @@
 <template>
 <div>
     <h1>Doggies!</h1>
-    <b-table striped hover :items="dogs"></b-table>
+    <b-table striped hover :items="dogs">
+      <template slot="name" slot-scope="data">
+        <router-link :to="`/profileanimalfriend/dogs/${data.index}`">
+          {{data.value}}
+        </router-link>
+      </template>
+    </b-table>
   </div>
 </template>
 

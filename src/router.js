@@ -27,7 +27,7 @@ export default new Router({
       component: Dogs
     },
     {
-      path: '/profileanimalfriend/:id',
+      path: '/profileanimalfriend/:species/:id',
       name: 'profileanimalfriend',
       component: ProfileAnimalFriend
     }
