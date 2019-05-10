@@ -1,8 +1,13 @@
 <template>
 <div>
   <h1>Your animal Friend</h1>
-  {{$route.params.species}}
-  {{$route.params.id}}
+  <h2>{{animals.name}}</h2>
+  <h3>{{animals.breed}}</h3>
+  <h3>{{animals.gender}}</h3>
+  <h3>{{animals.age}}</h3>
+  <h3>{{animals.color}}</h3>
+  <h3>{{animals.location}}</h3>
+  <p>{{animals.notes}}</p>
 </div>
 </template>
 <script>
@@ -10,13 +15,23 @@
   export default {
     data () {
       return {
-        // BECAUSE I AM NOT IMPORTING THE DATA FILE IS DIRECTLY FROM THE STATE.
-        // cats: cats
+        animals: {}
       }
     },
+    // BECAUSE I AM NOT IMPORTING THE DATA FILE IS DIRECTLY FROM THE STATE.
+    // cats: cats
     // USING A COMPUTED PROPERTY TO LOAD THE INFO OF THE STATE FOR THIS COMPONENT
     computed: {
-      ...mapState(['cats'])
+      ...mapState([
+        'cats',
+        'dogs'
+      ])
+    },
+    mounted () {
+        console.log('HOLA ENTRE AQUI!!')
+        const animals = this[this.$route.params.species][this.$route.params.id]
+        console.log(animals)
+        this.animals = animals
     }
 }
 </script>
