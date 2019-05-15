@@ -1,7 +1,8 @@
 <template>
-  <div class="home">
+  <div class="home-view-container">
     <h1>Adopt a new best Friend</h1>
     {{animalsCount}}
+    {{getAllCats.length}}
     <button v-on:click ="toogglePetForm" class="btn btn-primary">
       SHOW PET FORM
     </button>
@@ -54,7 +55,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'animalsCount'
+      'animalsCount',
+      'getAllCats'
     ])
   },
   methods: {
